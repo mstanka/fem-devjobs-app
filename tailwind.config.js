@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: 'media',
@@ -25,7 +27,24 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['checked'],
+      borderColor: ['checked'],
+      inset: ['checked'],
+      zIndex: ['hover', 'active'],
+    },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-pseudo-elements'),
+    plugin(({ addUtilities }) => {
+      const newUtilities = {
+        '.empty-content': {
+          content: "''",
+        },
+      };
+      addUtilities(newUtilities, {
+        variants: ['before', 'after'],
+      });
+    }),
+  ],
 };

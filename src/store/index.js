@@ -6,7 +6,9 @@ import getters from './getters.js';
 
 const store = createStore({
   state() {
-    return {};
+    return {
+      darkMode: '',
+    };
   },
   mutations,
   actions,

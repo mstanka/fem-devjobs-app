@@ -21,6 +21,8 @@
             type="checkbox"
             name="toggle"
             id="toggle"
+            v-model="checked"
+            @click="toggleMode"
             class="
               bg-primary-violet
               outline-none
@@ -41,6 +43,7 @@
             "
           />
         </div>
+
         <img
           src="../assets/desktop/icon-moon.svg"
           alt="icon-moon"
@@ -65,3 +68,18 @@
     />
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      checked: false,
+    };
+  },
+  methods: {
+    toggleMode() {
+      this.$store.dispatch('setMode', this.checked);
+    },
+  },
+};
+</script>

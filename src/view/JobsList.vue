@@ -1,16 +1,22 @@
 <template>
   <div
     class="
-      bg-secondary-white
+      bg-secondary-light-grey
       dark:bg-primary-midnight
       h-screen
       text-secondary-white
     "
   >
-    Jobs List
+    <card-job></card-job>
   </div>
 </template>
 
 <script>
-export default {};
+import CardJob from '../components/CardJob.vue';
+
+export default {
+  components: {
+    CardJob,
+  },
+};
 </script>

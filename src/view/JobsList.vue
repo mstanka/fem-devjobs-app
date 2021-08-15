@@ -3,20 +3,25 @@
     class="
       bg-secondary-light-grey
       dark:bg-primary-midnight
-      h-screen
       text-secondary-white
+      py-10      
     "
   >
-    <card-job></card-job>
+    <card-job-list :jobs="currentJobs"></card-job-list>
   </div>
 </template>
 
 <script>
-import CardJob from '../components/CardJob.vue';
+import CardJobList from '../components/CardJobList.vue';
 
 export default {
   components: {
-    CardJob,
+    CardJobList,
+  },
+  computed: {
+    currentJobs() {
+      return this.$store.getters.getJobs;
+    },
   },
 };
 </script>

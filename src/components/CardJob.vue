@@ -1,7 +1,8 @@
 <template>
-  <div
+  <li
     class="
-      w-80
+      w-96
+      md:max-w-80 md:w-full
       h-56
       mx-auto
       relative
@@ -10,20 +11,30 @@
       bg-secondary-white
       text-secondary-grey
       dark:bg-primary-very-dark-blue
-      px-9
+      px-7
       py-7
+      my-12
     "
   >
     <div>
-      <img
-        src="../assets/logos/scoot.svg"
-        alt="logo"
-        class="px-3 py-5 absolute -top-6 bg-secondary-dark-grey rounded-2xl"
-      />
+      <div
+        class="
+          w-12
+          h-12
+          absolute
+          -top-6
+          rounded-2xl
+          bg-primary-violet
+          grid
+          place-content-center
+        "
+      >
+        <img :src="logo" :alt="company" />
+      </div>
       <div class="py-3">
-        <span>5h ago</span>
+        <span>{{ postedAt }}</span>
         <span class="mx-3 font-bold">&#183;</span>
-        <span>Full Time</span>
+        <span>{{ contract }}</span>
       </div>
       <h3
         class="
@@ -38,10 +49,25 @@
           ease-in-out
         "
       >
-        Senior Software Engineer
+        {{ position }}
       </h3>
-      <p>Scoot</p>
+      <p>{{ company }}</p>
     </div>
-    <p class="text-primary-violet font-bold text-sm">United Kingdom</p>
-  </div>
+    <p class="text-primary-violet font-bold text-sm">{{ location }}</p>
+  </li>
 </template>
+
+<script>
+export default {
+  props: {
+    id: Number,
+    company: String,
+    logo: String,
+    logoBackground: String,
+    position: String,
+    postedAt: String,
+    contract: String,
+    location: String,
+  },
+};
+</script>

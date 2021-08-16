@@ -4,46 +4,36 @@
       <h1 class="text-secondary-white font-bold tracking-wider">devjobs</h1>
       <div class="flex max-w-24 justify-between items-center">
         <img src="../assets/desktop/icon-sun.svg" alt="icon-sun" class="w-5" />
-        <div
+        <Switch
+          v-model="checked"
+          @click="toggleMode"
           class="
             relative
-            inline-block
-            w-12
+            inline-flex
+            items-center
             h-6
-            mx-3
-            align-middle
-            select-none
-            bg-secondary-white
             rounded-full
+            w-11
+            mx-3
+            bg-secondary-white
           "
         >
-          <input
-            type="checkbox"
-            name="toggle"
-            id="toggle"
-            v-model="checked"
-            @click="toggleMode"
+          <span class="sr-only">Switch dark mode</span>
+          <span
+            :class="checked ? 'translate-x-6' : 'translate-x-1'"
             class="
-              bg-primary-violet
-              outline-none
-              focus:outline-none
-              right-7
-              checked:right-1
-              top-1
-              duration-300
-              ease-in
-              absolute
-              block
+              inline-block
               w-4
               h-4
+              transition
+              duration-200
+              ease-in-out
+              transform
+              bg-primary-violet
               rounded-full
-              bg-white
-              appearance-none
-              cursor-pointer
             "
           />
-        </div>
-
+        </Switch>
         <img
           src="../assets/desktop/icon-moon.svg"
           alt="icon-moon"
@@ -70,7 +60,12 @@
 </template>
 
 <script>
+import { Switch } from '@headlessui/vue';
+
 export default {
+  components: {
+    Switch,
+  },
   data() {
     return {
       checked: false,

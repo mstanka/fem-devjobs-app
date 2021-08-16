@@ -5,7 +5,7 @@
       <div class="flex max-w-24 justify-between items-center">
         <img src="../assets/desktop/icon-sun.svg" alt="icon-sun" class="w-5" />
         <Switch
-          v-model="checked"
+          v-model="darkMode"
           @click="toggleMode"
           class="
             relative
@@ -20,7 +20,7 @@
         >
           <span class="sr-only">Switch dark mode</span>
           <span
-            :class="checked ? 'translate-x-6' : 'translate-x-1'"
+            :class="darkMode ? 'translate-x-6' : 'translate-x-1'"
             class="
               inline-block
               w-4
@@ -68,12 +68,12 @@ export default {
   },
   data() {
     return {
-      checked: false,
+      darkMode: false,
     };
   },
   methods: {
     toggleMode() {
-      this.$store.dispatch('setMode', this.checked);
+      this.$store.dispatch('setMode', this.darkMode);
     },
   },
 };

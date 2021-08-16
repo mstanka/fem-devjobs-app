@@ -27,14 +27,7 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      backgroundColor: ['checked'],
-      borderColor: ['checked'],
-      inset: ['checked'],
-      zIndex: ['hover', 'active'],
-    },
-  },
+  variants: {},
   plugins: [
     require('tailwindcss-pseudo-elements'),
     plugin(({ addUtilities }) => {

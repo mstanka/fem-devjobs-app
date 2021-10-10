@@ -13,6 +13,7 @@
     <card-job
       v-for="job in jobs"
       :key="job.id"
+      :id="job.id"
       :company="job.company"
       :logo="job.logo"
       :logoBackground="job.logoBackground"

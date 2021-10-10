@@ -1,7 +1,35 @@
 <template>
-  <header class="relative max-w-screen-2xl w-full m-auto bg-secondary-light-grey dark:bg-primary-midnight">
-    <div class="flex max-w-md md:max-w-2xl lg:max-w-screen-lg xl:max-w-screen-xl w-full pb-5 pt-8 left-8 md:left-12 lg:left-32 justify-between items-center absolute">
-      <h1 class="text-secondary-white font-bold tracking-wider">devjobs</h1>
+  <header
+    class="
+      relative
+      max-w-screen-2xl
+      w-full
+      m-auto
+      bg-secondary-light-grey
+      dark:bg-primary-midnight
+    "
+  >
+    <div
+      class="
+        flex
+        max-w-md
+        md:max-w-2xl
+        lg:max-w-screen-lg
+        xl:max-w-screen-xl
+        w-full
+        pb-5
+        pt-8
+        left-8
+        md:left-12
+        lg:left-32
+        justify-between
+        items-center
+        absolute
+      "
+    >
+      <router-link to="/jobs">
+        <h1 class="text-secondary-white font-bold tracking-wider">devjobs</h1>
+      </router-link>
       <div class="flex max-w-24 justify-between items-center">
         <img src="../assets/desktop/icon-sun.svg" alt="icon-sun" class="w-5" />
         <Switch
@@ -60,7 +88,7 @@
 </template>
 
 <script>
-import { Switch } from '@headlessui/vue';
+import { Switch } from "@headlessui/vue";
 
 export default {
   components: {
@@ -73,7 +101,7 @@ export default {
   },
   methods: {
     toggleMode() {
-      this.$store.dispatch('setMode', this.darkMode);
+      this.$store.dispatch("setMode", this.darkMode);
     },
   },
 };

@@ -1,5 +1,8 @@
 export default {
-  getJobs(state) {
+  getJobs: (state) => {
     return state.jobs;
+  },
+  getJob: (state) => (id) => {
+    return state.jobs.find((job) => job.id == id);
   },
 };

@@ -16,44 +16,46 @@
       my-12
     "
   >
-    <div>
-      <div
-        class="
-          w-12
-          h-12
-          absolute
-          -top-6
-          rounded-2xl
-          bg-primary-violet
-          grid
-          place-content-center
-        "
-      >
-        <img :src="logo" :alt="company" />
+    <router-link :to="`/jobs/${id}`">
+      <div>
+        <div
+          class="
+            w-12
+            h-12
+            absolute
+            -top-6
+            rounded-2xl
+            bg-primary-violet
+            grid
+            place-content-center
+          "
+        >
+          <img :src="logo" :alt="company" />
+        </div>
+        <div class="py-3">
+          <span>{{ postedAt }}</span>
+          <span class="mx-3 font-bold">&#183;</span>
+          <span>{{ contract }}</span>
+        </div>
+        <h3
+          class="
+            text-primary-midnight
+            hover:text-secondary-grey
+            dark:text-secondary-white dark:hover:text-secondary-grey
+            font-bold
+            pb-4
+            cursor-pointer
+            transition
+            duration-300
+            ease-in-out
+          "
+        >
+          {{ position }}
+        </h3>
+        <p>{{ company }}</p>
       </div>
-      <div class="py-3">
-        <span>{{ postedAt }}</span>
-        <span class="mx-3 font-bold">&#183;</span>
-        <span>{{ contract }}</span>
-      </div>
-      <h3
-        class="
-          text-primary-midnight
-          hover:text-secondary-grey
-          dark:text-secondary-white dark:hover:text-secondary-grey
-          font-bold
-          pb-4
-          cursor-pointer
-          transition
-          duration-300
-          ease-in-out
-        "
-      >
-        {{ position }}
-      </h3>
-      <p>{{ company }}</p>
-    </div>
-    <p class="text-primary-violet font-bold text-sm">{{ location }}</p>
+      <p class="text-primary-violet font-bold text-sm">{{ location }}</p>
+    </router-link>
   </li>
 </template>
 

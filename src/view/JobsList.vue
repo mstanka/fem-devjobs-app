@@ -4,7 +4,8 @@
       bg-secondary-light-grey
       dark:bg-primary-midnight
       text-secondary-white
-      py-10      
+      py-10
+      max-w-screen-2xl w-full m-auto
     "
   >
     <card-job-list :jobs="currentJobs"></card-job-list>

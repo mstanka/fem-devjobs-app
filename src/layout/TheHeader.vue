@@ -7,22 +7,20 @@
       m-auto
       bg-secondary-light-grey
       dark:bg-primary-midnight
-      
     "
   >
     <div
       class="
         flex
-        max-w-md
-        md:max-w-2xl
-        lg:max-w-screen-lg
-        xl:max-w-screen-xl
-        w-full
+        w-4/5
+        md:w-11/12
+        max-w-screen-xl
+        mx-auto
         pb-5
         pt-8
-        left-8
-        md:left-12
-        lg:left-32
+        left-12
+        md:left-8
+        xl:left-32
         justify-between
         items-center
         absolute

@@ -5,7 +5,7 @@
       md:grid-cols-2
       xl:grid-cols-3
       max-w-screen-xl
-      mx-8
+      md:mx-8
       xl:mx-auto
       gap-x-10
     "
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import CardJob from './CardJob.vue';
+import CardJob from "./CardJob.vue";
 
 export default {
   components: {

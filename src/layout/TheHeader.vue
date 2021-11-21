@@ -7,6 +7,7 @@
       m-auto
       bg-secondary-light-grey
       dark:bg-primary-midnight
+      
     "
   >
     <div

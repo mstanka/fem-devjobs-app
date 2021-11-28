@@ -38,6 +38,7 @@
         <input
           type="text"
           placeholder="Filter by title..."
+          v-model.trim="filters.title"
           class="
             p-2
             pl-4
@@ -52,6 +53,7 @@
         <input
           type="text"
           placeholder="Filter by title, companies, expertise..."
+          v-model.trim="filters.company"
           class="
             p-2
             rounded-md
@@ -103,6 +105,7 @@
         <input
           type="text"
           placeholder="Filter by location..."
+          v-model.trim="filters.location"
           class="p-2 w-full dark:bg-primary-very-dark-blue cursor-pointer"
         />
       </div>
@@ -113,6 +116,7 @@
       <div class="hidden md:flex items-center">
         <input
           type="checkbox"
+          v-model="filters.isFullTime"
           class="bg-secondary-grey w-4 h-4 p-4 inline-block cursor-pointer"
         />
         <label
@@ -155,7 +159,11 @@
             d="M17.112 15.059h-1.088l-.377-.377a8.814 8.814 0 002.15-5.784A8.898 8.898 0 008.898 0 8.898 8.898 0 000 8.898a8.898 8.898 0 008.898 8.899c2.211 0 4.23-.808 5.784-2.143l.377.377v1.081l6.845 6.832 2.04-2.04-6.832-6.845zm-8.214 0A6.16 6.16 0 118.9 2.737a6.16 6.16 0 010 12.322z"
           />
         </svg>
-        <button type="submit" class="hidden md:block font-bold cursor-pointer">
+        <button
+          type="submit"
+          class="hidden md:block font-bold cursor-pointer"
+          @click="filterJobs"
+        >
           Search
         </button>
       </div>
@@ -178,6 +186,12 @@ export default {
   data() {
     return {
       showModal: false,
+      filters: {
+        title: "",
+        company: "",
+        location: "",
+        isFullTime: false,
+      },
     };
   },
   methods: {
@@ -187,6 +201,25 @@ export default {
     closeModal() {
       this.showModal = false;
     },
+    filterJobs() {
+      console.log(this.filters)
+      const filteredData = this.currentJobs.filter((job) => {
+        for (filter of this.filters) {
+          return Object.keys(job).some((key) => job[key].includes(filter));
+        }
+      });
+      console.log(filteredData);
+
+      this.$store.dispatch("filterJobs", filteredData);
+    },
+  },
+  computed: {
+    currentJobs() {
+      return this.$store.getters.getJobs;
+    },
+    filteredJobs() {
+      return this.$store.getters.getFilteredJobs;
+    }
   },
 };
 </script>
